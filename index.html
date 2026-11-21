@@ -20,18 +20,59 @@
       display: flex;
       flex-direction: column;
       align-items: center;
-      gap: 20px;
+      gap: 12px;
+      padding: 12px;
     }
-    
+
     canvas {
       border: 2px solid #333;
       background-color: #000;
       display: block;
+      /* Shrink (never stretch) to fit small windows, keeping the aspect ratio.
+         The drawing buffer stays 800x860; only the on-screen size changes. */
+      max-width: 100%;
+      max-height: calc(100vh - 130px);
+      width: auto;
+      height: auto;
+      image-rendering: pixelated; /* sharp cells when scaled down */
     }
-    
+
     h1 {
       color: #fff;
       margin: 0;
+      font-size: 22px;
+    }
+
+    #controls {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      gap: 8px;
+      color: #aaa;
+      font-size: 14px;
+    }
+
+    #controls button {
+      font: inherit;
+      color: #fff;
+      background: #2a2a2a;
+      border: 1px solid #555;
+      border-radius: 4px;
+      padding: 4px 12px;
+      cursor: pointer;
+    }
+
+    #controls button:hover {
+      background: #3a3a3a;
+    }
+
+    #controls button:disabled {
+      color: #666;
+      cursor: default;
+    }
+
+    kbd {
+      color: #ddd;
     }
   </style>
 </head>
@@ -39,6 +80,13 @@
   <div id="app">
     <h1>Hive Mind - Ant Colony Simulation</h1>
     <canvas id="gameCanvas"></canvas>
+    <div id="controls">
+      <button id="btnPause" type="button" title="Space"><kbd>Space</kbd> Pause</button>
+      <button id="btnSave" type="button" title="S"><kbd>S</kbd> Save</button>
+      <button id="btnLoad" type="button" title="L"><kbd>L</kbd> Load</button>
+      <button id="btnNew" type="button" title="N"><kbd>N</kbd> New map</button>
+      <span id="status" role="status" aria-live="polite"></span>
+    </div>
   </div>
   <script type="module" src="/src/main.js"></script>
 </body>
