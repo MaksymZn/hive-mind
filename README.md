@@ -75,6 +75,10 @@ The application follows a strict **Model-View-Controller (MVC)** or **Entity-Com
 2.  Install dependencies: `npm install`
 3.  Start dev server: `npm run dev`
 
+**Without Node.js:** open `standalone/hive-mind.html` with a double-click. It is the whole game bundled into one file (no server needed). After changing anything in `src/`, rebuild it with `py tools/build_standalone.py` (Python 3).
+
+**Controls:** `Space` pause · `S` save · `L` load · `N` new map · `?seed=42` in the URL replays the same map.
+
 ---
 ---
 
@@ -143,3 +147,7 @@ The application follows a strict **Model-View-Controller (MVC)** or **Entity-Com
 1.  Ініціалізація (якщо з нуля): `npm create vite@latest hive-mind -- --template vanilla`
 2.  Встановлення залежностей: `npm install`
 3.  Запуск сервера розробки: `npm run dev`
+
+**Без Node.js:** відкрийте `standalone/hive-mind.html` подвійним кліком. Це вся гра, зібрана в один файл (сервер не потрібен). Після змін у `src/` перезберіть його: `py tools/build_standalone.py` (Python 3).
+
+**Керування:** `Space` пауза · `S` зберегти · `L` завантажити · `N` нова карта · `?seed=42` в адресі відтворює ту саму карту.
